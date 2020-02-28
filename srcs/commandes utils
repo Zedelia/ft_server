@@ -1,0 +1,11 @@
+docker build -t test .
+docker run -tid -p 80:80 --name=test test:latest
+
+docker exec -it test bash
+
+docker system prune -a
+
+service mysql start
+service nginx restart
+service php7.3-fpm
+service php7.3-fpm restart
